@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+	--font-serif: "Crimson Text", serif;
+	--font-sans: "Inter", sans-serif;
+
+	--color-parchment: #f5f0e8;
+	--color-parchment-dark: #e8dfd2;
+	--color-ink: #2c1810;
+	--color-ink-light: #5c4033;
+	--color-spine: #8b6914;
+	--color-spine-dark: #6b4f10;
+}
+
+body {
+	margin: 0;
+	background: #ffffff;
+	font-family: var(--font-sans);
+	overflow: hidden;
+	height: 100dvh;
+}
+
+#app {
+	height: 100dvh;
+}
+
+/* ── Journal entrance animations ── */
+
+@keyframes journal-title-in {
+	0% {
+		opacity: 0;
+		transform: translateY(24px) scale(0.92);
+		filter: blur(6px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+		filter: blur(0);
+	}
+}
+
+@keyframes journal-subtitle-in {
+	0% {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+	100% {
+		opacity: 0.6;
+		transform: translateY(0);
+	}
+}
+
+@keyframes journal-pop {
+	0% {
+		opacity: 0;
+		transform: scale(0) rotate(-4deg);
+	}
+	50% {
+		opacity: 1;
+		transform: scale(1.07) rotate(1deg);
+	}
+	70% {
+		transform: scale(0.96) rotate(-0.5deg);
+	}
+	85% {
+		transform: scale(1.02) rotate(0deg);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1) rotate(0deg);
+	}
+}
+
+@keyframes journal-shadow-grow {
+	0% {
+		filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0));
+	}
+	50% {
+		filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.35));
+	}
+	100% {
+		filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.3));
+	}
+}
+
+.animate-journal-title {
+	animation: journal-title-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+	animation-delay: 100ms;
+}
+
+.animate-journal-subtitle {
+	animation: journal-subtitle-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+	animation-delay: 300ms;
+}
+
+.animate-journal-pop-1 {
+	animation:
+		journal-pop 0.75s cubic-bezier(0.22, 1, 0.36, 1) both,
+		journal-shadow-grow 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+	animation-delay: 450ms;
+}
+
+.animate-journal-pop-2 {
+	animation:
+		journal-pop 0.75s cubic-bezier(0.22, 1, 0.36, 1) both,
+		journal-shadow-grow 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+	animation-delay: 580ms;
+}
